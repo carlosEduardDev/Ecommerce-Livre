@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import count from './count'
+import search from './search.tsx'
 
 const store = configureStore({
-  reducer: count
+  reducer: search
 });
 
 export default store;
