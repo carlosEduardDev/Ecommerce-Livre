@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
   name: "search",
-  initialState: { search: "notebook" },
+  initialState: { result: "notebook" },
   reducers: {
     wordsearch(state, action) {
-      state.search = action.payload;
+      state.result = action.payload;
     },
   },
 });
