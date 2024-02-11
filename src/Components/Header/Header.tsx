@@ -10,7 +10,9 @@ const Header = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(wordsearch(searchValue));
+    searchValue
+      ? dispatch(wordsearch(searchValue))
+      : dispatch(wordsearch("notebook"));
   };
 
   return (
@@ -22,7 +24,9 @@ const Header = () => {
             id="search-value"
             className={styles.header__input}
             placeholder="Buscar produtos..."
-            onChange={({ target }) => setSearchValue(target.value)}
+            onChange={({ target }) => {
+              setSearchValue(target.value);
+            }}
           />
           <button>
             <IoSearchOutline />

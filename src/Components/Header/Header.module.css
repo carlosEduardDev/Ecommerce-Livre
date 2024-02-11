@@ -1,9 +1,10 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: var(--primary-color);
   height: 4.3rem; /* 70px */
-  padding: 20px 30px;
+  padding-inline: var(--padding-page);
   color: var(--white);
 }
 
