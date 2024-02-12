@@ -3,11 +3,11 @@
 
 /* vars */
 :root {
-  --primary-color: rgb(10, 97, 210);
+  --primary-color: rgb(6, 88, 195);
   --white: rgb(255, 255, 255);
   --padding-default: 2rem;
   --padding-page: 5rem;
-  --bg-color: rgb(249, 248, 248);
+  --bg-color: rgb(255, 255, 255);
 }
 
 /* reset css */
@@ -36,4 +36,16 @@ html {
 
 body {
   background-color: var(--bg-color);
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.sec-card {
+  padding: var(--padding-page);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--padding-default);
 }

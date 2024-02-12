@@ -33,7 +33,10 @@ export const fetchProduct = async (url: string, dispatch: Dispatch) => {
     const data = await response.json();
     return dispatch(fetchSuccess(data));
   } catch (error) {
-    if (error instanceof Error) return dispatch(fetchError(error.message));
+    if (error instanceof Error) {
+      dispatch(fetchError(error.message));
+      throw new Error( error.message + ' - Verifique sua conexão');
+    }
   }
 };
 
