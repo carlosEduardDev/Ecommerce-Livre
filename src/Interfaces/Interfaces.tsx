@@ -28,6 +28,27 @@ export interface Products {
   ];
 }
 
+export interface IProduct {
+  title: string;
+  price: number;
+  original_price: number;
+  condition: string;
+  permalink: string;
+  pictures: { url: string }[];
+  seller_address: {
+    city: { name: string };
+    state: { name: string };
+    country: { name: string };
+  };
+  attributes: {
+    name: string;
+    value_name: string;
+  }[];
+  warranty: string;
+  date_created: string;
+  last_updated: string;
+}
+
 export interface reduceProduct {
   productsFetch: {
     loading: boolean;

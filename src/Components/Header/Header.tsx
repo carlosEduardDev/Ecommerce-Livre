@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import { IoBagHandleOutline, IoSearchOutline } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { wordsearch } from "../../Store/search";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,9 @@ const Header = () => {
           </button>
         </form>
       </search>
+      <Link to='/sacola'>
       <IoBagHandleOutline />
+      </Link>
     </header>
   );
 };
