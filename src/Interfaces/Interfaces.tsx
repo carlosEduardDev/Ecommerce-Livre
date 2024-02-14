@@ -4,6 +4,12 @@ export interface reduceSearch {
   };
 }
 
+export interface reduceBag {
+  bag: {
+    items: { title: string; image: string; price: number; id: string }[];
+  };
+}
+
 export interface Products {
   results: [
     {
@@ -47,6 +53,7 @@ export interface IProduct {
   warranty: string;
   date_created: string;
   last_updated: string;
+  id: string;
 }
 
 export interface reduceProduct {

@@ -4,8 +4,9 @@
   }
 }
 
-.card {
-  box-shadow: 1px 2px 3px 1px rgb(197, 187, 187);
+.card,
+.card__bag {
+  box-shadow: 1px 1px 3px 1px rgb(197, 187, 187);
   border-radius: 5px;
   padding: var(--padding-default);
   background-color: white;
@@ -18,6 +19,15 @@
   gap: 1rem;
   position: relative;
   border-bottom: 16px solid white;
+}
+.card__bag {
+  flex-direction: row;
+  img {
+    width: 100px;
+  }
+  .card__price {
+    position: initial;
+  }
 }
 
 .card:hover > .card__filter {
