@@ -11,7 +11,7 @@ const Cards = ({
   bag = false,
   product = true,
 }: {
-  search: string;
+  search?: string;
   id: string;
   price: number;
   title: string;
@@ -32,14 +32,23 @@ const Cards = ({
               })}
             </span>
 
-            <img
-              src={image.replace("I", "W")}
-              alt={title}
-              className={styles["card__image"]}
-            />
+            <img src={image} alt={title} className={styles["card__image"]} />
             <p className={styles["card__description"]}>{title}</p>
           </div>
         </Link>
+      )}
+      {bag && (
+        <div className={styles.card__bag}>
+          <span className={styles.card__price}>
+            {price.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </span>
+
+          <img src={image} alt={title} className={styles["card__image"]} />
+          <p className={styles["card__description"]}>{title}</p>
+        </div>
       )}
     </>
   );

@@ -5,10 +5,9 @@
 }
 
 .sec-product {
-  height: 100vh;
+  height: calc(100vh - 70px);
   display: grid;
-  place-content: center;
-  padding-inline: var(--padding-page);
+  padding: 5rem var(--padding-page);
   grid-template-columns: 1fr 1fr;
   opacity: 0;
   animation: fade 0.5s 0.1s linear forwards;
@@ -32,6 +31,7 @@
 }
 
 .sec-product__info__atributes {
+  
   height: 140px;
   overflow: auto;
   border-radius: 5px;
@@ -52,7 +52,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  a {
+  .link {
     border: 2px solid var(--primary-color);
     padding: 5px 10px;
     border-radius: 5px;

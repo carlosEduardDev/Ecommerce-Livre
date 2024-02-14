@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Product from "./Components/Product/Product";
 import { useDispatch, useSelector } from "react-redux";
 import { reduceProduct, reduceSearch } from "./Interfaces/Interfaces";
-import Bag from "./Components/Bag/Bag";
+import Bag from "./Components/ShopppingCar/ShoppingCar";
 import { fetchProduct } from "./Store/productsFetch";
 
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
             path="/"
             element={
               <>
-                <Header />
+                <Header initial={true}/>
                 <section className="sec-card">
                   {loading && <h1>Carregando...</h1>}
                   {error && <h1>Erro!, verifique a internet...</h1>}
@@ -37,7 +37,7 @@ const App = () => {
                         search={search}
                         id={product.id}
                         price={product.price}
-                        image={product.thumbnail}
+                        image={product.thumbnail.replace("I", "W")}
                         title={product.title}
                         key={crypto.randomUUID()}
                       />
@@ -48,7 +48,7 @@ const App = () => {
           />
           <Route path={`${search}/:prod`} element={<Product />} />
           <Route path={"sacola"} element={<Bag />} />
-          <Route path="*" element={<h1>Página não encontrada...</h1>} />
+          <Route path="*" element={<><Header product={true}/><section><h1>Página não encontrada...</h1></section></>} />
         </Routes>
       </main>
     </BrowserRouter>

@@ -1,12 +1,26 @@
 /* font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(185, 179, 179, 0.4);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--primary-color);
+}
+
 /* vars */
 :root {
   --primary-color: rgb(6, 88, 195);
   --white: rgb(255, 255, 255);
   --padding-default: 2rem;
-  --padding-page: 5rem;
+  --padding-page: 10rem;
   --bg-color: rgb(255, 255, 255);
 }
 
@@ -44,8 +58,12 @@ a {
 }
 
 .sec-card {
-  padding: var(--padding-page);
+  padding: 5rem var(--padding-page);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--padding-default);
+}
+
+section {
+  padding: 5rem var(--padding-page);
 }
