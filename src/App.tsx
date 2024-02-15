@@ -6,7 +6,7 @@ import Product from "./Components/Product/Product";
 import { useDispatch, useSelector } from "react-redux";
 import { reduceProduct, reduceSearch } from "./Interfaces/Interfaces";
 import Bag from "./Components/ShopppingCar/ShoppingCar";
-import { fetchProduct } from "./Store/productsFetch";
+import { fetchProduct } from "./Store/ProductsFetch";
 
 const App = () => {
   const search = useSelector((state: reduceSearch) => state.search.result);
@@ -27,7 +27,7 @@ const App = () => {
             path="/"
             element={
               <>
-                <Header initial={true}/>
+                <Header initial={true} />
                 <section className="sec-card">
                   {loading && <h1>Carregando...</h1>}
                   {error && <h1>Erro!, verifique a internet...</h1>}
@@ -48,7 +48,17 @@ const App = () => {
           />
           <Route path={`${search}/:prod`} element={<Product />} />
           <Route path={"sacola"} element={<Bag />} />
-          <Route path="*" element={<><Header product={true}/><section><h1>Página não encontrada...</h1></section></>} />
+          <Route
+            path="*"
+            element={
+              <>
+                <Header product={true} />
+                <section>
+                  <h1>Página não encontrada...</h1>
+                </section>
+              </>
+            }
+          />
         </Routes>
       </main>
     </BrowserRouter>

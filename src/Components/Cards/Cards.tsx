@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Cards.module.css";
 import { Link } from "react-router-dom";
+import { ICard } from "../../Interfaces/Interfaces";
 
 const Cards = ({
   search,
@@ -10,15 +11,7 @@ const Cards = ({
   image,
   bag = false,
   product = true,
-}: {
-  search?: string;
-  id: string;
-  price: number;
-  title: string;
-  image: string;
-  bag?: boolean;
-  product?: boolean;
-}) => {
+}: ICard) => {
   return (
     <>
       {product && (

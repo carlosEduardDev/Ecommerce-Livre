@@ -1,9 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import search from "./search.tsx";
-import productsFetch from "./productsFetch.tsx";
-import bag from "./bag.tsx";
+import search from "./Search.tsx";
+import productsFetch from "./ProductsFetch.tsx";
+import cart from "./Cart.tsx";
 
-const reducer = combineReducers({ search, productsFetch, bag });
+const reducer = combineReducers({ search, productsFetch, cart });
 
 const store = configureStore({
   reducer,

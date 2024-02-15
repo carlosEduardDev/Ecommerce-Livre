@@ -6,28 +6,20 @@ import {
   IoSearchOutline,
 } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
-import { wordsearch } from "../../Store/search";
 import { Link } from "react-router-dom";
-import { reduceBag } from "../../Interfaces/Interfaces";
+import { IHeader, reduceCart, reduceSearch } from "../../Interfaces/Interfaces";
+import { wordsearch } from "../../Store/Search";
 
-const Header = ({
-  initial,
-  product,
-  bag,
-}: {
-  initial?: boolean;
-  product?: boolean;
-  bag?: boolean;
-}) => {
-  const bagState = useSelector((state: reduceBag) => state.bag.items);
+const Header = ({ initial, product, bag }: IHeader) => {
+  const cartState = useSelector((state: reduceCart) => state.cart.items);
+  const wordState = useSelector((state: reduceSearch) => state.search.result);
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = React.useState("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    searchValue
-      ? dispatch(wordsearch(searchValue))
-      : dispatch(wordsearch("notebook"));
+    if (searchValue !== "" && searchValue !== wordState)
+      dispatch(wordsearch(searchValue));
   };
 
   return (
@@ -53,11 +45,11 @@ const Header = ({
               </button>
             </form>
           </search>
-          {bagState.length ? (
+          {cartState.length ? (
             <Link
               to="/sacola"
               className={styles.popup}
-              data-count={bagState.length.toString()}
+              data-count={cartState.length.toString()}
             >
               <IoBagHandleOutline title="Sacola de itens" />
             </Link>
@@ -73,11 +65,11 @@ const Header = ({
           <Link to="/">
             <IoHomeOutline title="Início" />
           </Link>
-          {bagState.length ? (
+          {cartState.length ? (
             <Link
               to="/sacola"
               className={styles.popup}
-              data-count={bagState.length.toString()}
+              data-count={cartState.length.toString()}
             >
               <IoBagHandleOutline title="Sacola de itens" />
             </Link>

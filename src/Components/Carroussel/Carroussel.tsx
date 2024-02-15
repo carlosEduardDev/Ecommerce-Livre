@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./Carroussel.module.css";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { ICarroussel } from "../../Interfaces/Interfaces";
 
-const Carroussel = ({ images }: { images: string[] }) => {
+const Carroussel = ({ images }: ICarroussel) => {
   const [current, setCurrent] = React.useState(0);
   const total = images?.length - 1;
 
