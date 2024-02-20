@@ -8,21 +8,34 @@
   color: var(--white);
 }
 
+.header__logo {
+  font-size: 20px;
+}
+
 .header__search-form {
   display: flex;
+  position: relative;
   gap: 0.5rem;
   align-items: center;
   button {
     background-color: transparent;
+    position: absolute;
+    right: 2px;
+    height: 2.3rem;
+    width: 2.5rem;
     border: none;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    background: #ee6e26;
     color: currentColor;
   }
 }
 
 .header__input {
   outline: none;
+  width: 40rem;
+  height: 2.5rem;
   padding: 5px;
-  height: 24px;
   border-radius: 5px;
   border: none;
   &:hover {
@@ -31,10 +44,10 @@
   }
 }
 
-.popup{
+.popup {
   position: relative;
 }
-.popup::before{
+.popup::before {
   content: attr(data-count);
   background-color: rgb(255, 255, 255);
   font-size: 12px;
@@ -48,4 +61,10 @@
   border-radius: 50%;
   top: -7px;
   right: -7px;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
