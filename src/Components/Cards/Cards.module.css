@@ -6,11 +6,11 @@
 
 .card,
 .card__bag {
-  box-shadow: 1px 1px 3px 1px rgb(197, 187, 187);
+  box-shadow: 1px 1px 7px 0px rgb(197, 187, 187);
   border-radius: 5px;
-  padding: var(--padding-default);
   background-color: white;
   cursor: pointer;
+  padding: 0.5rem 1rem;
   height: 100%;
   opacity: 0;
   animation: fade 0.5s linear forwards;
@@ -25,43 +25,36 @@
   img {
     width: 100px;
   }
-  .card__price {
-    position: initial;
-  }
-}
-
-.card:hover > .card__filter {
-  opacity: 1;
 }
 
 .card__price {
-  font-size: 1.1rem;
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
+  color: var(--secundary-color);
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .card__description {
-  font-size: 1.1rem;
+  font-size: 1rem;
+  padding: 0;
+  width: 180px;
+  font-size: 14px;
+}
+
+.favorite {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.card__button {
+  background-color: var(--secundary-color);
+  color: var(--white);
+  font-size: 14px;
+  border-radius: 5px;
+  width: 100%;
+  height: 35px;
 }
 
 .card__image {
   width: 100%;
-  margin-top: 2rem;
-}
-
-.card__filter {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  border-radius: 5px;
-  left: 0;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.93);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  opacity: 0;
-  z-index: 1;
 }

@@ -28,6 +28,9 @@ const App = () => {
             element={
               <>
                 <Header initial={true} />
+                <h1 className="productSearch">
+                  Exibindo resultados para {search}
+                </h1>
                 <section className="sec-card">
                   {loading && <h1>Carregando...</h1>}
                   {error && <h1>Erro!, verifique a internet...</h1>}
