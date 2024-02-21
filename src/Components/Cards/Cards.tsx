@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Cards.module.css";
 import { Link } from "react-router-dom";
 import { ICard } from "../../Interfaces/Interfaces";
-import { BiHeart } from "react-icons/bi";
+import { IoHeartOutline } from "react-icons/io5";
 
 const Cards = ({
   search,
@@ -19,7 +19,7 @@ const Cards = ({
         <Link to={`${search}/${id}`}>
           <div className={styles.card}>
             <img src={image} alt={title} className={styles["card__image"]} />
-            <BiHeart
+            <IoHeartOutline
               color="var(--secundary-color)"
               className={styles.favorite}
             />

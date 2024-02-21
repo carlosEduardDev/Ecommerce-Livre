@@ -8,7 +8,7 @@
   --white: rgb(255, 255, 255);
   --padding-default: 2rem;
   --padding-page: 9rem;
-  --bg-color: rgb(255, 255, 255);
+  --bg-color: rgb(252, 252, 252);
 }
 
 /* reset css */
@@ -44,6 +44,17 @@ a {
   text-decoration: none;
 }
 
+@keyframes fade {
+  100% {
+    opacity: initial;
+  }
+}
+
+main {
+  opacity: 0;
+  animation: fade 1s forwards;
+}
+
 .sec-card {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -55,8 +66,16 @@ a {
   font-size: 20px;
   padding: 3rem var(--padding-page);
   color: grey;
+  span {
+    font-style: italic;
+  }
 }
 
 section {
   padding: 5rem var(--padding-page);
+}
+
+.warning {
+  font-size: 20px;
+  padding: var(--padding-default) var(--padding-page);
 }

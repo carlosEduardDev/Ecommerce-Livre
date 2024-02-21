@@ -13,6 +13,7 @@ const App = () => {
   const { loading, data, error } = useSelector(
     (state: reduceProduct) => state.productsFetch
   );
+  const selection = true;
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -29,11 +30,20 @@ const App = () => {
               <>
                 <Header initial={true} />
                 <h1 className="productSearch">
-                  Exibindo resultados para {search}
-                </h1>
+                  Exibindo resultados para " <span>{search}</span> " :
+                </h1>{" "}
+                {loading && <h1 className="warning">Carregando...</h1>}
+                {error && (
+                  <h1 className="warning">Erro!, verifique a internet...</h1>
+                )}
+                {data?.results[0] === undefined &&
+                  loading == false &&
+                  error === null && (
+                    <h1 className="warning">
+                      Lamentamos, mas não temos o produto que você procura...
+                    </h1>
+                  )}
                 <section className="sec-card">
-                  {loading && <h1>Carregando...</h1>}
-                  {error && <h1>Erro!, verifique a internet...</h1>}
                   {data &&
                     data.results.map((product) => (
                       <Cards

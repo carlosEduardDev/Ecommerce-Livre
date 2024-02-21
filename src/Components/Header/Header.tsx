@@ -24,54 +24,30 @@ const Header = ({ initial, product, bag }: IHeader) => {
   };
 
   return (
-      <header className={styles.header}>
-        {initial && (
-          <>
-            <p className={styles.header__logo}>Ecommerce Livre &reg;</p>
-            <search>
-              <form
-                className={styles["header__search-form"]}
-                onSubmit={handleSubmit}
-              >
-                <input
-                  type="text"
-                  id="search-value"
-                  className={styles.header__input}
-                  placeholder="Buscar produtos..."
-                  onChange={({ target }) => {
-                    setSearchValue(target.value);
-                  }}
-                />
-                <button>
-                  <IoSearchOutline title="Pesquisar" />
-                </button>
-              </form>
-            </search>
-            <div className={styles.header__actions}>
-              {cartState.length ? (
-                <Link
-                  to="/sacola"
-                  className={styles.popup}
-                  data-count={cartState.length.toString()}
-                >
-                  <IoBagHandleOutline title="Sacola de itens" />
-                </Link>
-              ) : (
-                <Link to="/sacola">
-                  <IoBagHandleOutline title="Sacola de itens" />
-                </Link>
-              )}
-              <Link to="/favoritos">
-                <IoHeartOutline />
-              </Link>
-            </div>
-          </>
-        )}
-        {product && (
-          <>
-            <Link to="/">
-              <IoHomeOutline title="Início" />
-            </Link>
+    <header className={styles.header}>
+      {initial && (
+        <>
+          <p className={styles.header__logo}>Ecommerce Livre &reg;</p>
+          <search>
+            <form
+              className={styles["header__search-form"]}
+              onSubmit={handleSubmit}
+            >
+              <input
+                type="text"
+                id="search-value"
+                className={styles.header__input}
+                placeholder="Buscar produtos..."
+                onChange={({ target }) => {
+                  setSearchValue(target.value);
+                }}
+              />
+              <button>
+                <IoSearchOutline title="Pesquisar" />
+              </button>
+            </form>
+          </search>
+          <div className={styles.header__actions}>
             {cartState.length ? (
               <Link
                 to="/sacola"
@@ -85,17 +61,41 @@ const Header = ({ initial, product, bag }: IHeader) => {
                 <IoBagHandleOutline title="Sacola de itens" />
               </Link>
             )}
-          </>
-        )}
-        {bag && (
-          <>
-            <Link to="/">
-              <IoHomeOutline title="Home" />
+            <Link to="/favoritos">
+              <IoHeartOutline />
             </Link>
-            <p>Seus Produtos</p>
-          </>
-        )}
-      </header>
+          </div>
+        </>
+      )}
+      {product && (
+        <>
+          <Link to="/">
+            <IoHomeOutline title="Início" />
+          </Link>
+          {cartState.length ? (
+            <Link
+              to="/sacola"
+              className={styles.popup}
+              data-count={cartState.length.toString()}
+            >
+              <IoBagHandleOutline title="Sacola de itens" />
+            </Link>
+          ) : (
+            <Link to="/sacola">
+              <IoBagHandleOutline title="Sacola de itens" />
+            </Link>
+          )}
+        </>
+      )}
+      {bag && (
+        <>
+          <Link to="/">
+            <IoHomeOutline title="Home" />
+          </Link>
+          <p>Seus Produtos</p>
+        </>
+      )}
+    </header>
   );
 };
 

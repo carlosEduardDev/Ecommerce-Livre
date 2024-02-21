@@ -6,7 +6,7 @@
 
 .card,
 .card__bag {
-  box-shadow: 1px 1px 7px 0px rgb(197, 187, 187);
+  box-shadow: 1px 1px 7px 0px rgba(188, 182, 182, 0.482);
   border-radius: 5px;
   background-color: white;
   cursor: pointer;
@@ -57,4 +57,5 @@
 
 .card__image {
   width: 100%;
+  min-height: 160px;
 }
