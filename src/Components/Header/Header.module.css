@@ -26,14 +26,14 @@
     border: none;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
-    background: #ee6e26;
+    background: var(--secundary-color);
     color: currentColor;
   }
 }
 
 .header__input {
   outline: none;
-  width: 40rem;
+  width: 50rem;
   height: 2.5rem;
   padding: 5px;
   border-radius: 5px;

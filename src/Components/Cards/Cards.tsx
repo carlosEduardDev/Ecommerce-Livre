@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Cards.module.css";
 import { Link } from "react-router-dom";
 import { ICard } from "../../Interfaces/Interfaces";
+import { BiHeart } from "react-icons/bi";
 
 const Cards = ({
   search,
@@ -17,16 +18,23 @@ const Cards = ({
       {product && (
         <Link to={`${search}/${id}`}>
           <div className={styles.card}>
-            <div className={styles.card__filter}>Ver Mais</div>
+            <img src={image} alt={title} className={styles["card__image"]} />
+            <BiHeart
+              color="var(--secundary-color)"
+              className={styles.favorite}
+            />
             <span className={styles.card__price}>
               {price.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               })}
             </span>
-
-            <img src={image} alt={title} className={styles["card__image"]} />
-            <p className={styles["card__description"]}>{title}</p>
+            <p className={styles.card__description}>
+              {title.substring(0, 35).concat("...")}
+            </p>
+            <button className={styles.card__button}>
+              Adicionar ao carrinho
+            </button>
           </div>
         </Link>
       )}

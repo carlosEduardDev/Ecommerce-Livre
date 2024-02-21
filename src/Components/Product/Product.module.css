@@ -21,7 +21,7 @@
 }
 
 .sec-product__info__title {
-  color: var(--primary-color);
+  color: var(--secundary-color);
 }
 
 .sec-product__info__prices {
@@ -37,7 +37,7 @@
   border-radius: 5px;
   padding-inline: 1.2rem;
   p {
-    color: var(--primary-color);
+    color: var(--secundary-color);
   }
   li {
     color: rgb(128, 128, 128);
@@ -53,19 +53,19 @@
   align-items: center;
   gap: 1rem;
   .link {
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--secundary-color);
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 12px;
-    color: var(--primary-color);
+    color: var(--secundary-color);
     font-weight: bold;
     &:hover {
-      background-color: var(--primary-color);
+      background-color: var(--secundary-color);
       color: var(--white);
       font-weight: normal;
     }
   }
   svg {
-    color: var(--primary-color);
+    color: var(--secundary-color);
   }
 }
