@@ -7,13 +7,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { reduceProduct, reduceSearch } from "./Interfaces/Interfaces";
 import Bag from "./Components/ShopppingCar/ShoppingCar";
 import { fetchProduct } from "./Store/ProductsFetch";
+import Favorites from "./Components/Favorites/Favorites";
+import { CiWifiOff } from "react-icons/ci";
+import { MdOutlineSearchOff } from "react-icons/md";
 
 const App = () => {
   const search = useSelector((state: reduceSearch) => state.search.result);
   const { loading, data, error } = useSelector(
     (state: reduceProduct) => state.productsFetch
   );
-  const selection = true;
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -24,23 +26,24 @@ const App = () => {
     <BrowserRouter>
       <main>
         <Routes>
+          <Route path="/favoritos" element={<Favorites />}/>
           <Route
             path="/"
             element={
               <>
                 <Header initial={true} />
-                <h1 className="productSearch">
+                {data?.results[0] && <h1 className="productSearch">
                   Exibindo resultados para " <span>{search}</span> " :
-                </h1>{" "}
+                </h1>}{" "}
                 {loading && <h1 className="warning">Carregando...</h1>}
                 {error && (
-                  <h1 className="warning">Erro!, verifique a internet...</h1>
+                  <h1 className="warning"><CiWifiOff />Verifique a sua conexão com a internet...</h1>
                 )}
                 {data?.results[0] === undefined &&
                   loading == false &&
                   error === null && (
                     <h1 className="warning">
-                      Lamentamos, mas não temos o produto que você procura...
+                      <MdOutlineSearchOff /> Lamentamos, mas não temos o produto que você procura...
                     </h1>
                   )}
                 <section className="sec-card">
