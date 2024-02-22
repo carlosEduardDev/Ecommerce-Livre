@@ -9,8 +9,9 @@ const ShoppingCar = () => {
   const stateCart = useSelector((state: reduceCart) => state.cart.items);
   return (
     <>
-      <Header bag={true} />
+      <Header bag={true} label="Seus Produtos" />
       <section className={styles.secBag}>
+        {!stateCart[0] && <h1>Ainda não há produtos na sua sacola.</h1>}
         {stateCart.map((item) => (
           <Cards
             key={crypto.randomUUID()}

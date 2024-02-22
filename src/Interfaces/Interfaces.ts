@@ -6,6 +6,12 @@ export interface reduceSearch {
   };
 }
 
+export interface reduceFavorite {
+  favorite: {
+    item: { title: string; image: string; price: number; id: string }[];
+  };
+}
+
 export interface reduceCart {
   cart: {
     items: { title: string; image: string; price: number; id: string }[];
@@ -25,6 +31,7 @@ export interface IHeader {
   initial?: boolean;
   product?: boolean;
   bag?: boolean;
+  label?: string;
 }
 
 export interface ICarroussel {
@@ -39,6 +46,7 @@ export interface ICard {
   image: string;
   bag?: boolean;
   product?: boolean;
+  favorite?: boolean;
 }
 
 // interface fetch's

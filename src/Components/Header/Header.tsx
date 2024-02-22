@@ -2,17 +2,26 @@ import React from "react";
 import styles from "./Header.module.css";
 import {
   IoBagHandleOutline,
+  IoHeart,
   IoHeartOutline,
   IoHomeOutline,
   IoSearchOutline,
 } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { IHeader, reduceCart, reduceSearch } from "../../Interfaces/Interfaces";
+import {
+  IHeader,
+  reduceCart,
+  reduceFavorite,
+  reduceSearch,
+} from "../../Interfaces/Interfaces";
 import { wordsearch } from "../../Store/Search";
 
-const Header = ({ initial, product, bag }: IHeader) => {
+const Header = ({ initial, product, bag, label }: IHeader) => {
   const cartState = useSelector((state: reduceCart) => state.cart.items);
+  const favoriteState = useSelector(
+    (state: reduceFavorite) => state.favorite.item
+  );
   const wordState = useSelector((state: reduceSearch) => state.search.result);
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = React.useState("");
@@ -62,7 +71,7 @@ const Header = ({ initial, product, bag }: IHeader) => {
               </Link>
             )}
             <Link to="/favoritos">
-              <IoHeartOutline />
+              {favoriteState[0] ? <IoHeart /> : <IoHeartOutline />}
             </Link>
           </div>
         </>
@@ -92,7 +101,7 @@ const Header = ({ initial, product, bag }: IHeader) => {
           <Link to="/">
             <IoHomeOutline title="Home" />
           </Link>
-          <p>Seus Produtos</p>
+          <p>{label}</p>
         </>
       )}
     </header>

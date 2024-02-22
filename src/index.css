@@ -78,4 +78,8 @@ section {
 .warning {
   font-size: 20px;
   padding: var(--padding-default) var(--padding-page);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
 }
