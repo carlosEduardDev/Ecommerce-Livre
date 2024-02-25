@@ -1,10 +1,10 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./Carroussel.module.css";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { ICarroussel } from "../../Interfaces/Interfaces";
 
 const Carroussel = ({ images }: ICarroussel) => {
-  const [current, setCurrent] = React.useState(0);
+  const [current, setCurrent] = useState(0);
   const total = images?.length - 1;
 
   const prevImage = () => {
@@ -31,7 +31,9 @@ const Carroussel = ({ images }: ICarroussel) => {
               onClick={nextImage}
               className={styles["carroussel__next-button"]}
             >
-              <IoIosArrowForward className={styles["carroussel__prev-button"]} />
+              <IoIosArrowForward
+                className={styles["carroussel__prev-button"]}
+              />
             </button>
           </>
         )}

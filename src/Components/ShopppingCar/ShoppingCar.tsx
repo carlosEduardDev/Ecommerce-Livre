@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { reduceCart, reduceOpenCart } from "../../Interfaces/Interfaces";
 import Cards from "../Cards/Cards";

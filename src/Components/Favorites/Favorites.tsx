@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../Header/Header";
 import Cards from "../Cards/Cards";
 import { useSelector } from "react-redux";

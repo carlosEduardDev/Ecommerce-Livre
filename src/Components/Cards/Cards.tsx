@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Cards.module.css";
 import { Link } from "react-router-dom";
 import { ICard, reduceCart, reduceFavorite } from "../../Interfaces/Interfaces";
@@ -57,7 +56,10 @@ const Cards = ({
           <p className={styles.card__description}>
             {title.substring(0, 35).concat("...")}
           </p>{" "}
-          <Link to={`${search}/${id}`} onClick={() => dispatch(togglecart(false))}>
+          <Link
+            to={`${search}/${id}`}
+            onClick={() => dispatch(togglecart(false))}
+          >
             <button className={styles.card__button}>Ver mais</button>
           </Link>
         </div>
@@ -98,11 +100,11 @@ const Cards = ({
             </span>
 
             <p className={styles["card__description"]}>
-              {title.substring(0, 40).concat('...')}
+              {title.substring(0, 40).concat("...")}
             </p>
           </div>{" "}
           {cartState[0] && (
-            <BsBagX 
+            <BsBagX
               onClick={() => dispatch(removecart(id))}
               className={styles.closeBtn}
             />

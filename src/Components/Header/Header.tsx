@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, FormEvent } from "react";
 import styles from "./Header.module.css";
 import {
   IoBagHandleOutline,
@@ -29,9 +29,9 @@ const Header = ({ initial, product, bag, label }: IHeader) => {
   );
   const wordState = useSelector((state: reduceSearch) => state.search.result);
   const dispatch = useDispatch();
-  const [searchValue, setSearchValue] = React.useState("");
+  const [searchValue, setSearchValue] = useState("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (searchValue !== "" && searchValue !== wordState)
       dispatch(wordsearch(searchValue));
@@ -109,11 +109,10 @@ const Header = ({ initial, product, bag, label }: IHeader) => {
             ) : (
               <span>
                 <IoBagHandleOutline
-                onClick={handleClick}
-                title="Sacola de itens"
-              />
+                  onClick={handleClick}
+                  title="Sacola de itens"
+                />
               </span>
-              
             )}
             <Link to="/favoritos">
               {favoriteState[0] ? <IoHeart /> : <IoHeartOutline />}

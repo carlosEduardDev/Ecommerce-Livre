@@ -1,12 +1,7 @@
-import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styles from "./Product.module.css";
 import Carroussel from "../Carroussel/Carroussel";
-import {
-  IProduct,
-  reduceCart,
-  reduceOpenCart,
-} from "../../Interfaces/Interfaces";
+import { IProduct, reduceCart } from "../../Interfaces/Interfaces";
 import { IoBagAddOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { addcart } from "../../Store/Cart";
