@@ -4,10 +4,41 @@
   }
 }
 
+.sec-product__info__atributes {
+  grid-column: 1/3;
+  h1 {
+    margin-top: 10rem;
+  }
+}
+
+.sec-product__info__atributes__list {
+  width: fit-content;
+  border: 1px solid grey;
+  padding: 1rem;
+  height: 200px;
+  overflow: hidden;
+  margin: 2rem 0px;
+  list-style: none;
+  gap: 3rem;
+  columns: 2;
+  border-radius: 5px;
+  padding-inline: 1.2rem;
+  font-size: 1rem;
+  li {
+    margin-bottom: 5px;
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
 .sec-product {
-  height: calc(100vh - 70px);
+  height: calc(100vh - 80px);
   display: grid;
+  align-items: center;
+  justify-content: center;
   padding: 5rem var(--padding-page);
+  margin-top: 5rem;
   grid-template-columns: 1fr 1fr;
   opacity: 0;
   animation: fade 0.5s 0.1s linear forwards;
@@ -22,30 +53,16 @@
 
 .sec-product__info__title {
   color: var(--secundary-color);
+  font-size: 1.4rem;
 }
 
 .sec-product__info__prices {
   display: flex;
-  gap: 1rem;
-  font-size: 1.1rem;
-}
-
-.sec-product__info__atributes {
-  
-  height: 140px;
-  overflow: auto;
-  border-radius: 5px;
-  padding-inline: 1.2rem;
-  p {
-    color: var(--secundary-color);
-  }
-  li {
-    color: rgb(128, 128, 128);
-    &:hover {
-      color: rgb(0, 0, 0);
-      font-weight: bold;
-    }
-  }
+  align-items: center;
+  gap: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--secundary-color);
 }
 
 .sec-product__info__btns {
@@ -53,19 +70,18 @@
   align-items: center;
   gap: 1rem;
   .link {
-    border: 2px solid var(--secundary-color);
+    background-color: var(--secundary-color);
     padding: 5px 10px;
     border-radius: 5px;
-    font-size: 12px;
-    color: var(--secundary-color);
-    font-weight: bold;
-    &:hover {
-      background-color: var(--secundary-color);
-      color: var(--white);
-      font-weight: normal;
-    }
+    height: 2.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--white);
   }
-  svg {
-    color: var(--secundary-color);
+  button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
   }
 }

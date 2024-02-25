@@ -1,5 +1,6 @@
 .favorite {
   display: grid;
   grid-template-columns: repeat(2, minmax(200px, 1fr));
+  margin-top: 3rem;
   gap: 2rem;
 }

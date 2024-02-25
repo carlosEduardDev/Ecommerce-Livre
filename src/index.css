@@ -8,7 +8,7 @@
   --white: rgb(255, 255, 255);
   --padding-default: 2rem;
   --padding-page: 9rem;
-  --bg-color: rgb(252, 252, 252);
+  --bg-color: rgb(255, 255, 255);
 }
 
 /* reset css */
@@ -64,6 +64,7 @@ main {
 
 .productSearch {
   font-size: 20px;
+  margin-top: 5rem;
   padding: 3rem var(--padding-page);
   color: grey;
   span {
@@ -81,5 +82,5 @@ section {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 5rem;
 }

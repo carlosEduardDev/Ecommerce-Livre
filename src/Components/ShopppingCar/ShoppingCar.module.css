@@ -1,3 +1,25 @@
 .secBag {
-  padding: 5rem var(--padding-page);
+  gap: 1rem;
+  padding: 0;
+  padding: 80px 1rem 0px 1rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  width: 0px;
+  overflow-y: auto;
+  top: 0px;
+  right: -40px;
+  border-left: 1px solid grey;
+  background-color: rgba(255, 255, 255, 0.953);
+  h1 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.secBag__text {
+  color: grey;
+  font-size: 1.1rem !important;
+  background-color: white !important;
 }

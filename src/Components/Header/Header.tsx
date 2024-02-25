@@ -13,12 +13,17 @@ import {
   IHeader,
   reduceCart,
   reduceFavorite,
+  reduceOpenCart,
   reduceSearch,
 } from "../../Interfaces/Interfaces";
 import { wordsearch } from "../../Store/Search";
+import { togglecart } from "../../Store/OpenCart";
 
 const Header = ({ initial, product, bag, label }: IHeader) => {
   const cartState = useSelector((state: reduceCart) => state.cart.items);
+  const openCartState = useSelector(
+    (state: reduceOpenCart) => state.opencart.open
+  );
   const favoriteState = useSelector(
     (state: reduceFavorite) => state.favorite.item
   );
@@ -30,6 +35,10 @@ const Header = ({ initial, product, bag, label }: IHeader) => {
     event.preventDefault();
     if (searchValue !== "" && searchValue !== wordState)
       dispatch(wordsearch(searchValue));
+  };
+
+  const handleClick = () => {
+    dispatch(togglecart(!openCartState));
   };
 
   return (
@@ -58,17 +67,22 @@ const Header = ({ initial, product, bag, label }: IHeader) => {
           </search>
           <div className={styles.header__actions}>
             {cartState.length ? (
-              <Link
-                to="/sacola"
+              <span
                 className={styles.popup}
                 data-count={cartState.length.toString()}
               >
-                <IoBagHandleOutline title="Sacola de itens" />
-              </Link>
+                <IoBagHandleOutline
+                  onClick={handleClick}
+                  title="Sacola de itens"
+                />
+              </span>
             ) : (
-              <Link to="/sacola">
-                <IoBagHandleOutline title="Sacola de itens" />
-              </Link>
+              <span>
+                <IoBagHandleOutline
+                  onClick={handleClick}
+                  title="Sacola de itens"
+                />
+              </span>
             )}
             <Link to="/favoritos">
               {favoriteState[0] ? <IoHeart /> : <IoHeartOutline />}
@@ -78,22 +92,33 @@ const Header = ({ initial, product, bag, label }: IHeader) => {
       )}
       {product && (
         <>
-          <Link to="/">
+          <Link to="/" onClick={() => dispatch(togglecart(false))}>
             <IoHomeOutline title="Início" />
           </Link>
-          {cartState.length ? (
-            <Link
-              to="/sacola"
-              className={styles.popup}
-              data-count={cartState.length.toString()}
-            >
-              <IoBagHandleOutline title="Sacola de itens" />
+          <div className={styles.header__actions}>
+            {cartState.length ? (
+              <span
+                className={styles.popup}
+                data-count={cartState.length.toString()}
+              >
+                <IoBagHandleOutline
+                  onClick={handleClick}
+                  title="Sacola de itens"
+                />
+              </span>
+            ) : (
+              <span>
+                <IoBagHandleOutline
+                onClick={handleClick}
+                title="Sacola de itens"
+              />
+              </span>
+              
+            )}
+            <Link to="/favoritos">
+              {favoriteState[0] ? <IoHeart /> : <IoHeartOutline />}
             </Link>
-          ) : (
-            <Link to="/sacola">
-              <IoBagHandleOutline title="Sacola de itens" />
-            </Link>
-          )}
+          </div>
         </>
       )}
       {bag && (

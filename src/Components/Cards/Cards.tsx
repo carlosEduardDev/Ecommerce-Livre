@@ -6,6 +6,8 @@ import { IoHeartOutline, IoHeart, IoCloseCircleOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { addfavorites, removefavorites } from "../../Store/Favorite";
 import { removecart } from "../../Store/Cart";
+import { BsBagX } from "react-icons/bs";
+import { togglecart } from "../../Store/OpenCart";
 
 const Cards = ({
   search,
@@ -21,9 +23,7 @@ const Cards = ({
   const favoriteState = useSelector(
     (state: reduceFavorite) => state.favorite.item
   );
-  const cartState = useSelector(
-    (state: reduceCart) => state.cart.items
-  );
+  const cartState = useSelector((state: reduceCart) => state.cart.items);
   const handleClickFavorite = () => {
     if (!favoriteState.filter((item) => item.id === id)[0]) {
       dispatch(addfavorites({ title, image, price, id }));
@@ -57,7 +57,7 @@ const Cards = ({
           <p className={styles.card__description}>
             {title.substring(0, 35).concat("...")}
           </p>{" "}
-          <Link to={`${search}/${id}`}>
+          <Link to={`${search}/${id}`} onClick={() => dispatch(togglecart(false))}>
             <button className={styles.card__button}>Ver mais</button>
           </Link>
         </div>
@@ -89,7 +89,7 @@ const Cards = ({
       {bag && (
         <div className={styles.card__bag}>
           <img src={image} alt={title} className={styles["card__image"]} />
-          <div>
+          <div className={styles.card__infos}>
             <span className={styles.card__price}>
               {price.toLocaleString("pt-BR", {
                 style: "currency",
@@ -97,17 +97,16 @@ const Cards = ({
               })}
             </span>
 
-            <p className={styles["card__description"]}>{title}</p>
-            <Link to={`/${search}/${id}`}>
-              <button>Ver mais</button>
-            </Link>
-            {cartState[0] && (
-              <IoCloseCircleOutline
-                onClick={() => dispatch(removecart(id))}
-                className={styles.closeBtn}
-              />
-            )}
-          </div>
+            <p className={styles["card__description"]}>
+              {title.substring(0, 40).concat('...')}
+            </p>
+          </div>{" "}
+          {cartState[0] && (
+            <BsBagX 
+              onClick={() => dispatch(removecart(id))}
+              className={styles.closeBtn}
+            />
+          )}
         </div>
       )}
     </>

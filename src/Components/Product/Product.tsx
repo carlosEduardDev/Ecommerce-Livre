@@ -2,12 +2,17 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./Product.module.css";
 import Carroussel from "../Carroussel/Carroussel";
-import { IProduct, reduceCart } from "../../Interfaces/Interfaces";
+import {
+  IProduct,
+  reduceCart,
+  reduceOpenCart,
+} from "../../Interfaces/Interfaces";
 import { IoBagAddOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { addcart } from "../../Store/Cart";
 import Header from "../Header/Header";
 import useFetch from "../../Service/useFetch";
+import { togglecart } from "../../Store/OpenCart";
 
 const formateBRL = (price: number) => {
   return price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -17,21 +22,22 @@ const Product = () => {
   const dispatch = useDispatch();
   const stateCart = useSelector((state: reduceCart) => state.cart.items);
   const prodID = useParams();
-  const {data} = useFetch<IProduct>(
+  const { data } = useFetch<IProduct>(
     `https://api.mercadolibre.com/items/${prodID.prod}`
   );
 
   const handleDispatch = () => {
     if (data && !stateCart.filter((item) => item.id === data.id)[0]) {
+      dispatch(togglecart(true));
       dispatch(
         addcart({
           title: data.title,
           price: formateBRL(data.price),
           image: data.pictures[0].url,
           id: data.id,
+          qtd: 1,
         })
       );
-      alert("Item adicionado a sacola");
     }
   };
 
@@ -39,9 +45,7 @@ const Product = () => {
     <>
       <Header product={true} />
       <section className={styles["sec-product"]}>
-        {data && (
-          <Carroussel images={data?.pictures.map((img) => img.url)} />
-        )}
+        {data && <Carroussel images={data?.pictures.map((img) => img.url)} />}
 
         {data && (
           <div className={styles["sec-product__info"]}>
@@ -50,7 +54,9 @@ const Product = () => {
             </h1>
             <div className={styles["sec-product__info__prices"]}>
               {data?.price === data?.original_price ? (
-                <span>{formateBRL(data?.price)}</span>
+                <span style={{ fontWeight: "bold" }}>
+                  {formateBRL(data?.price)}
+                </span>
               ) : (
                 <>
                   <span
@@ -60,22 +66,20 @@ const Product = () => {
                       color: "grey",
                     }}
                   >
-                    {data.original_price &&
-                      formateBRL(data?.original_price)}
+                    {data.original_price && formateBRL(data?.original_price)}
                   </span>
-                  <span>{formateBRL(data?.price)}</span>
+                  <span style={{ fontWeight: "bold" }}>
+                    {formateBRL(data?.price)}
+                  </span>
                 </>
               )}
-            </div>
-            <p>Lista de Atributos:</p>
-            <ul className={styles["sec-product__info__atributes"]}>
-              {data?.attributes.map((attr) => (
-                <li key={crypto.randomUUID()}>
-                  {attr.name} : {attr.value_name}
-                </li>
-              ))}
-            </ul>
-            <p>
+            </div>{" "}
+            <span
+              style={{ marginTop: "-20px", fontSize: ".9rem", color: "grey" }}
+            >
+              Em até 10x no cartâo de crédito
+            </span>
+            <p style={{ marginBlock: "20px" }}>
               {data.seller_address.city.name ===
               data.seller_address.state.name ? (
                 <>
@@ -91,31 +95,31 @@ const Product = () => {
               )}
             </p>
             <div className={styles["sec-product__info__btns"]}>
-              <a
-                className={styles.link}
-                href={data.permalink}
-                target="_blank"
-              >
+              <a className={styles.link} href={data.permalink} target="_blank">
                 Ver no Mercado Livre &reg;
               </a>
 
               {stateCart.filter((item) => item.id === data.id)[0] ? (
-                <Link
-                  style={{
-                    textDecoration: "underline",
-                    color: "var(--primary-color)",
-                  }}
-                  to="/sacola"
-                  title="Sacola de itens"
-                >
-                  item adicionado a sacola
-                </Link>
+                <span>item adicionado a sacola</span>
               ) : (
-                <button>
-                  <IoBagAddOutline onClick={handleDispatch} />
+                <button className={styles.link} onClick={handleDispatch}>
+                  <p>Adicionar na sacola</p>
+                  <IoBagAddOutline />
                 </button>
               )}
             </div>
+          </div>
+        )}
+        {data && (
+          <div className={styles["sec-product__info__atributes"]}>
+            <h1>Especificações:</h1>
+            <ul className={styles["sec-product__info__atributes__list"]}>
+              {data?.attributes.map((attr) => (
+                <li key={crypto.randomUUID()}>
+                  <span>{attr.name}</span> : {attr.value_name}
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </section>

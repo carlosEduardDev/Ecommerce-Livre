@@ -40,8 +40,6 @@ const arr = [
 ];
 const randomElement = arr[Math.floor(Math.random() * arr.length)];
 
-console.log(randomElement);
-
 const slice = createSlice({
   name: "search",
   initialState: { result: randomElement },
