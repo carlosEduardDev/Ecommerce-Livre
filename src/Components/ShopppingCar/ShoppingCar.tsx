@@ -1,17 +1,35 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { reduceCart } from "../../Interfaces/Interfaces";
+import { reduceCart, reduceOpenCart } from "../../Interfaces/Interfaces";
 import Cards from "../Cards/Cards";
-import Header from "../Header/Header";
 import styles from "./ShoppingCar.module.css";
 
 const ShoppingCar = () => {
+  const stateOpenCart = useSelector((state: reduceOpenCart) => state.opencart.open);
   const stateCart = useSelector((state: reduceCart) => state.cart.items);
+  const total = stateCart.reduce((acc, cur) => {
+    const formatedCurrent = String(cur.price)
+      .replace("R$", "")
+      .replace(",", ".");
+    return formatedCurrent.length >= 8
+      ? acc + Number(formatedCurrent.replace(/\./, "")) * cur.qtd
+      : acc + Number(formatedCurrent) * cur.qtd;
+  }, 0);
+
   return (
     <>
-      <Header bag={true} label="Seus Produtos" />
-      <section className={styles.secBag}>
-        {!stateCart[0] && <h1>Ainda não há produtos na sua sacola.</h1>}
+      <section className={styles.secBag} style={stateOpenCart ? {width: '450px'} : {width: '0px'}}>
+        {" "}
+        {stateCart[0] && (
+          <h1>
+            Total:{" "}
+            {total.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </h1>
+        )}
+        {!stateCart[0] && <h1 className={styles.secBag__text}>Ainda não há produtos na sua sacola.</h1>}
         {stateCart.map((item) => (
           <Cards
             key={crypto.randomUUID()}

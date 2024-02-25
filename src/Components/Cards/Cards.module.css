@@ -5,14 +5,13 @@
 }
 
 .card,
-.card__favorite,
-.card__bag {
+.card__favorite {
   box-shadow: 1px 1px 7px 0px rgba(188, 182, 182, 0.482);
   border-radius: 5px;
   background-color: white;
   padding: 0.5rem 1rem;
   height: 100%;
-  opacity: 0;
+  opacity: .7;
   animation: fade 0.5s linear forwards;
   display: flex;
   flex-direction: column;
@@ -20,6 +19,15 @@
   position: relative;
   border-bottom: 16px solid white;
 }
+
+.card__bag {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid grey;
+}
+
 .card__favorite {
   flex-direction: row;
   gap: 5rem;
@@ -42,15 +50,6 @@
       color: var(--secundary-color);
     }
   }
-}
-
-.card__bag {
-  flex-direction: row;
-}
-
-.card__bag .card__image {
-  width: 150px;
-  max-height: 190px;
 }
 
 .card__price {
@@ -108,12 +107,33 @@
 
 .card__image {
   width: 100%;
-  min-height: 190px;
+}
+
+.card__favorite .closeBtn {
+  color: var(--secundary-color);
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
 }
 
 .closeBtn {
-  position: absolute;
   color: var(--secundary-color);
-  top: 0.5rem;
-  right: 1rem;
+}
+
+.card__bag .card__image {
+  width: 80px;
+  height: auto;
+  max-height: 120px;
+}
+
+.card__bag .card__acrescent {
+  width: 50px;
+  padding: 5px 0px 5px 10px;
+}
+
+.card__bag .card__infos {
+  input {
+    width: 40px;
+    padding-inline-start: 5px;
+  }
 }

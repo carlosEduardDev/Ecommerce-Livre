@@ -12,9 +12,19 @@ export interface reduceFavorite {
   };
 }
 
+export interface reduceOpenCart {
+  opencart: { open: boolean };
+}
+
 export interface reduceCart {
   cart: {
-    items: { title: string; image: string; price: number; id: string }[];
+    items: {
+      title: string;
+      image: string;
+      price: number;
+      id: string;
+      qtd: number;
+    }[];
   };
 }
 
