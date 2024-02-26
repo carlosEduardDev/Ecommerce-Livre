@@ -13,7 +13,7 @@ const Favorites = () => {
     <>
       <Header bag={true} label="Produtos Favoritados" />
       <section className={styles.favorite}>
-        {!stateFavorite[0] && <h1>ainda não há produtos favoritados.</h1>}
+        {!stateFavorite[0] && <h1 className={styles.favorite__title}>ainda não há produtos favoritados.</h1>}
         {stateFavorite.map((item) => (
           <Cards
             key={crypto.randomUUID()}

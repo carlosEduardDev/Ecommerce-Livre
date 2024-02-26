@@ -17,7 +17,7 @@ const ShoppingCar = () => {
 
   return (
     <>
-      <section className={styles.secBag} style={stateOpenCart ? {width: '450px'} : {width: '0px'}}>
+      <section className={styles.secBag} style={stateOpenCart ? {width: '400px'} : {width: '0px'}}>
         {" "}
         {stateCart[0] && (
           <h1>

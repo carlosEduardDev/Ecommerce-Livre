@@ -1,7 +1,6 @@
 .carroussel {
   display: flex;
-  width: 500px;
-  justify-content: center;
+  width: 400px;
   border-radius: 5px;
 }
 
@@ -53,4 +52,29 @@ button {
   height: 30px;
   background-color: transparent;
   border: none;
+}
+
+@media (max-width: 1000px) {
+  .carroussel {
+    width: 90%;
+    justify-self: center;
+  }
+}
+@media (max-width: 700px) {
+  .carroussel__images {
+    img {
+      width: 300px;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .carroussel {
+    width: 80%;
+  }
+  .carroussel__images {
+    padding: 1rem 0px !important;
+    img {
+      width: 250px;
+    }
+  }
 }

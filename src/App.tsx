@@ -13,7 +13,6 @@ import { MdOutlineSearchOff } from "react-icons/md";
 
 const App = () => {
   const search = useSelector((state: reduceSearch) => state.search.result);
-  const [toggleCart, setToggleCart] = React.useState(false)
   const { loading, data, error } = useSelector(
     (state: reduceProduct) => state.productsFetch
   );

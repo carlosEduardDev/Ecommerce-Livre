@@ -54,7 +54,7 @@ const Cards = ({
             })}
           </span>
           <p className={styles.card__description}>
-            {title.substring(0, 35).concat("...")}
+            {title.substring(0, 30).concat("...")}
           </p>{" "}
           <Link
             to={`${search}/${id}`}
@@ -75,7 +75,9 @@ const Cards = ({
               })}
             </span>
 
-            <p className={styles["card__description"]}>{title}</p>
+            <p className={styles["card__description"]}>
+              {title.substring(0, 30).concat("...")}
+            </p>
             <Link to={`/${search}/${id}`}>
               <button>Ver mais</button>
             </Link>

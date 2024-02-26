@@ -85,3 +85,39 @@
     width: fit-content;
   }
 }
+
+@media (max-width: 1100px) {
+  .sec-product__info__title {
+    font-size: 1.3rem;
+  }
+  .sec-product__info__btns {
+    .link {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .sec-product {
+    display: grid;
+    margin-top: 0rem;
+    grid-template-columns: 1fr;
+    justify-content: start;
+    align-items: center;
+  }
+  .sec-product__info__atributes {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .sec-product__info__btns {
+    flex-direction: column;
+    align-items: start;
+    width: 250px !important;
+  }
+
+  .sec-product__info__atributes__list {
+   max-width: 350px;
+  }
+}

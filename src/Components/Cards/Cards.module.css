@@ -137,3 +137,25 @@
     padding-inline-start: 5px;
   }
 }
+
+@media(max-width: 1120px) {
+  .card__favorite{
+    gap: 2rem;
+  }
+}
+
+@media(max-width: 1020px) {
+  .card__favorite .card__image{
+    min-width: 120px;
+  }
+}
+
+
+@media(max-width: 440px) {
+.card__description{
+  width: 140px;
+}
+.card__favorite .card__image {
+  min-width: 100px;
+}
+}

@@ -58,6 +58,7 @@ main {
 .sec-card {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding-inline: var(--padding-page);
   gap: var(--padding-default);
   padding-top: 1rem;
 }
@@ -83,4 +84,36 @@ section {
   align-items: center;
   gap: 1rem;
   margin-top: 5rem;
+}
+
+@media (max-width: 1250px) {
+  :root {
+    --padding-page: 3rem;
+  }
+}
+
+@media (max-width: 570px) {
+  .warning {
+    flex-direction: column;
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .sec-card {
+    gap: 1rem;
+  }
+  .productSearch {
+    margin-top: 3rem;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 440px) {
+  :root {
+    --padding-page: 2rem;
+  }
+  .sec-card {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 }

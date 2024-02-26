@@ -4,3 +4,12 @@
   margin-top: 3rem;
   gap: 2rem;
 }
+
+@media (max-width: 860px) {
+  .favorite {
+    grid-template-columns: 1fr;
+  }
+  .favorite__title {
+    font-size: 18px;
+  }
+}
