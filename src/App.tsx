@@ -4,7 +4,7 @@ import Cards from "./Components/Cards/Cards";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Product from "./Components/Product/Product";
 import { useDispatch, useSelector } from "react-redux";
-import { reduceOpenCart, reduceProduct, reduceSearch } from "./Interfaces/Interfaces";
+import { reduceProduct, reduceSearch } from "./Interfaces/Interfaces";
 import Bag from "./Components/ShopppingCar/ShoppingCar";
 import { fetchProduct } from "./Store/ProductsFetch";
 import Favorites from "./Components/Favorites/Favorites";
