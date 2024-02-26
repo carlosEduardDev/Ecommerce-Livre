@@ -16,8 +16,8 @@ import {
   reduceOpenCart,
   reduceSearch,
 } from "../../Interfaces/Interfaces";
-import { wordsearch } from "../../Store/Search";
-import { togglecart } from "../../Store/OpenCart";
+import { wordsearch } from "../../store/search";
+import { togglecart } from "../../store/OpenCart";
 
 const Header = ({ initial, product, bag, label }: IHeader) => {
   const cartState = useSelector((state: reduceCart) => state.cart.items);

@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { ICard, reduceCart, reduceFavorite } from "../../Interfaces/Interfaces";
 import { IoHeartOutline, IoHeart, IoCloseCircleOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
-import { addfavorites, removefavorites } from "../../Store/Favorite";
-import { removecart } from "../../Store/Cart";
+import { addfavorites, removefavorites } from "../../store/Favorite";
+import { removecart } from "../../store/Cart";
 import { BsBagX } from "react-icons/bs";
-import { togglecart } from "../../Store/OpenCart";
+import { togglecart } from "../../store/OpenCart";
 
 const Cards = ({
   search,

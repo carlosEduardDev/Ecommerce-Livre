@@ -6,7 +6,7 @@ import Product from "./Components/Product/Product";
 import { useDispatch, useSelector } from "react-redux";
 import { reduceProduct, reduceSearch } from "./Interfaces/Interfaces";
 import Bag from "./Components/ShopppingCar/ShoppingCar";
-import { fetchProduct } from "./Store/ProductsFetch";
+import { fetchProduct } from "./store/productsFetch";
 import Favorites from "./Components/Favorites/Favorites";
 import { CiWifiOff } from "react-icons/ci";
 import { MdOutlineSearchOff } from "react-icons/md";

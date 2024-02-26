@@ -4,10 +4,10 @@ import Carroussel from "../Carroussel/Carroussel";
 import { IProduct, reduceCart } from "../../Interfaces/Interfaces";
 import { IoBagAddOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
-import { addcart } from "../../Store/Cart";
+import { addcart } from "../../store/Cart";
 import Header from "../Header/Header";
 import useFetch from "../../Service/useFetch";
-import { togglecart } from "../../Store/OpenCart";
+import { togglecart } from "../../store/OpenCart";
 
 const formateBRL = (price: number) => {
   return price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
