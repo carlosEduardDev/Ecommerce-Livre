@@ -15,7 +15,6 @@
   width: fit-content;
   border: 1px solid grey;
   padding: 1rem;
-  height: 200px;
   overflow: hidden;
   margin: 2rem 0px;
   list-style: none;
@@ -117,11 +116,11 @@
     width: 250px !important;
   }
 
-  .sec-product__info__atributes__list{
+  .sec-product__info__atributes__list {
     columns: 1;
   }
 
   .sec-product__info__atributes__list {
-   max-width: 350px;
+    max-width: 350px;
   }
 }
