@@ -28,7 +28,7 @@ O projeto foi feito do zero com:
 
 Desenvolvi ainda mais minhas habilidades no `React` e no `TypeScript`, utilizei a biblioteca de roteamento `React-Router` para gerenciar as rotas da page;
 
-Durante o processo me surgiu a necessidade de aprender um gerenciar de estado, então comecei a estudar o `Redux`, e para concluir a aplicação utilizei a biblioteca `Redux Toolkit`;
+Durante o processo me surgiu a necessidade de aprender um gerenciador de estado, então comecei a estudar o `Redux`, e para concluir a aplicação utilizei a biblioteca `Redux Toolkit`;
 
 Para os icones da page, utilizei a biblioteca `React-Icons`;
 
