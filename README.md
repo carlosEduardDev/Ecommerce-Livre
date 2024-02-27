@@ -1,30 +1,54 @@
-# React + TypeScript + Vite
+# Ecommerce Livre&reg;
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Sistema de ecommerce usando a [API do Mercado Livre&reg;](https://api.mercadolibre.com/sites/MLB/)**.
 
-Currently, two official plugins are available:
+Esse site surgiu da minha necessidade de entender como funcionava um sistema de ecommerce, minhas perguntas eram:
+- como eu poderia adicionar um item a um carrinho de compras?
+- como eu poderia apresentar itens de uma API?
+- como seria adicionar itens aos favoritos?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Foi dessas perguntas que o Ecommerce Livre&reg; nasceu!
 
-## Expanding the ESLint configuration
+[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
+[Visite o site!](https://ecommerce-livre.vercel.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Sobre
 
-- Configure the top-level `parserOptions` property like this:
+O projeto é um sistema de ecommerce, nele você pode pesquisar por produtos, adicionar ao carrinho de itens, favoritar, navegar entre as imagens do produto, etc..
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Tecnologias usadas:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+O projeto foi feito do zero com:
+
+
+![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![image](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![image](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![image](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+
+Desenvolvi ainda mais minhas habilidades no `React` e no `TypeScript`, utilizei a biblioteca de roteamento `React-Router` para gerenciar as rotas da page;
+
+Durante o processo me surgiu a necessidade de aprender um gerenciar de estado, então comecei a estudar o `Redux`, e para concluir a aplicação utilizei a biblioteca `Redux Toolkit`;
+
+Para os icones da page, utilizei a biblioteca `React-Icons`;
+
+## Interface do Projeto:
+
+![image](https://i.ibb.co/dWXrfHb/Captura-de-tela-2024-02-27-194534.png)
+
+## Autor do Projeto
+
+### Carlos Eduardo :)
+
+<p> 
+  <a href="https://github.com/carlosEduardDev">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
+  </a> 
+  <a href="https://api.whatsapp.com/send?phone=5511974265092/">
+    <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+  </a>   
+</p>
+
+>*NOTA*
+>
+>Esse projeto é livre, podendo pegá-lo e utilizá-lo em seus projetos e trabalhos!

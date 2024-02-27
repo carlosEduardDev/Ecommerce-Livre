@@ -16,6 +16,7 @@ const App = () => {
   const { loading, data, error } = useSelector(
     (state: reduceProduct) => state.productsFetch
   );
+  console.log(loading)
   const dispatch = useDispatch();
 
   React.useEffect(() => {
